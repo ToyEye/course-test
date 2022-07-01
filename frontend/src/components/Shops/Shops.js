@@ -8,13 +8,13 @@ const Shops = () => {
 
       <ul className="shopsContainer">
         <li className="item">
-          <LinkStyled to="mac"> Mac Donny</LinkStyled>
+          <LinkStyled to="burger">Burger Shop</LinkStyled>
         </li>
         <li className="item">
-          <LinkStyled to="/">CFK</LinkStyled>
+          <LinkStyled to="chicken">Chicken shop</LinkStyled>
         </li>
         <li className="item">
-          <LinkStyled to="/"> Chuck</LinkStyled>
+          <LinkStyled to="fish">Fish shop</LinkStyled>
         </li>
       </ul>
     </ContainerStyled>

@@ -1,10 +1,12 @@
 const theme = {
   colors: {
     mainColor: 'black',
+    secondaryColor: 'white',
     mainBg: '#F1F4F6',
     appBarColor: '#67CBFD',
     linkColorl: '#FFAE24',
     secondaryBg: '#D9D8D7',
+    error: 'red',
   },
   fonts: {
     families: {

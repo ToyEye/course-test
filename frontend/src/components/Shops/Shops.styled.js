@@ -5,7 +5,7 @@ const ContainerStyled = styled.div`
   border: 1px solid ${props => props.theme.colors.mainColor};
   border-radius: 5px;
   padding: 20px;
-  width: 300px;
+  min-width: 280px;
   height: 100vh;
   margin-right: 15px;
 

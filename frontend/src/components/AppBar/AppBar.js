@@ -5,7 +5,7 @@ const AppBar = () => {
   return (
     <Container>
       <NavLinkStyled to="/">Shops</NavLinkStyled>
-      <NavLinkStyled to="/shoppingCard">Shopping Card</NavLinkStyled>
+      <NavLinkStyled to="/card">Shopping Card</NavLinkStyled>
     </Container>
   );
 };
