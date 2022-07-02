@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import AppBar from 'components/AppBar';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import HomePage from 'views/HomePage';
-import CartPage from 'views/CartPage';
-import Food from 'components/Food';
+
+const HomePage = lazy(() => import('./views/HomePage'));
+const CartPage = lazy(() => import('./views/CartPage'));
+const Food = lazy(() => import('components/Food'));
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <AppBar />
       <Routes>
         <Route path="/" element={<HomePage />}>
-          <Route path="mac" element={<Food />} />
+          <Route path="burger" element={<Food shop="Burger" />} />
+          <Route path="wildfowl" element={<Food shop="Wildfowl" />} />
+          <Route path="steak" element={<Food shop="Steak" />} />
         </Route>
         <Route path="/card" element={<CartPage />} />
 

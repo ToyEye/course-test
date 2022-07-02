@@ -11,10 +11,10 @@ const Shops = () => {
           <LinkStyled to="burger">Burger Shop</LinkStyled>
         </li>
         <li className="item">
-          <LinkStyled to="chicken">Chicken shop</LinkStyled>
+          <LinkStyled to="wildfowl">Chicken shop</LinkStyled>
         </li>
         <li className="item">
-          <LinkStyled to="fish">Fish shop</LinkStyled>
+          <LinkStyled to="steak">Steak shop</LinkStyled>
         </li>
       </ul>
     </ContainerStyled>

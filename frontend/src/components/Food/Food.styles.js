@@ -6,6 +6,8 @@ const FoodContainerStyled = styled.div`
   border: 1px solid ${props => props.theme.colors.mainColor};
   border-radius: 5px;
   padding: 0 15px;
+  overflow-y: auto;
+  height: calc(100vh - 75px);
 
   .list {
     display: grid;
@@ -36,16 +38,6 @@ const ItemStyled = styled.li`
     margin-top: 5px;
   }
 
-  button {
-    display: block;
-    font-weight: ${props => props.theme.fonts.weights.medium};
-    background-color: ${props => props.theme.colors.linkColorl};
-    color: ${props => props.theme.colors.secondaryColor};
-    border-radius: 5px;
-    padding: 5px 15px;
-    margin-left: auto;
-  }
-
   img {
     margin-left: auto;
     margin-right: auto;
@@ -64,4 +56,14 @@ const ItemStyled = styled.li`
   }
 `;
 
-export { FoodContainerStyled, ItemStyled };
+const ButtonStyled = styled.button`
+  display: block;
+  font-weight: ${props => props.theme.fonts.weights.medium};
+  background-color: ${props => props.theme.colors.linkColorl};
+  color: ${props => props.theme.colors.secondaryColor};
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-left: auto;
+`;
+
+export { FoodContainerStyled, ItemStyled, ButtonStyled };

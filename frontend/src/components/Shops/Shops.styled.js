@@ -6,7 +6,8 @@ const ContainerStyled = styled.div`
   border-radius: 5px;
   padding: 20px;
   min-width: 280px;
-  height: 100vh;
+  height: calc(100vh - 75px);
+
   margin-right: 15px;
 
   .shopsContainer {

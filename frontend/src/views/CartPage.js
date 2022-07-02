@@ -1,12 +1,14 @@
 import React from 'react';
 import Form from 'components/Form';
-import { Container } from 'components/reusableComponents';
-
+import { Helmet } from 'react-helmet';
 const CartPage = () => {
   return (
-    <Container>
+    <>
+      <Helmet>
+        <title>Shoping Cart</title>
+      </Helmet>
       <Form />
-    </Container>
+    </>
   );
 };
 
