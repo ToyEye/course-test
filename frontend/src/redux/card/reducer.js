@@ -1,16 +1,28 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import actions from './actions';
 
-const initialValues = [];
+const initialValuesCard = [];
+const initialValuesSum = { items: [] };
 
-const card = createReducer(initialValues, {
-  [actions.add]: (state, { payload }) => [payload, ...state],
+const card = createReducer(initialValuesSum, {
+  [actions.add]: (state, { payload }) => {
+    if (state.items.find(item => item.id === payload.id)) {
+      return {
+        items: state.items.map(item => {
+          if (item.id === payload.id) {
+            return { ...item, count: payload.count };
+          }
+          return item;
+        }),
+      };
+    }
+  },
   [actions.remove]: (state, { payload }) =>
     state.filter(item => item.id !== payload),
 });
 
-const sum = createReducer(initialValues, {
-  [actions.sum]: (state, { payload }) => [payload, ...state],
+const addCard = createReducer(initialValuesCard, {
+  [actions.addCard]: (state, { payload }) => [payload, ...state],
 });
 
-export default combineReducers({ card, sum });
+export default combineReducers({ card, addCard });

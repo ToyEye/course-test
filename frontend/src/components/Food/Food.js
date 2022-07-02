@@ -27,7 +27,7 @@ const Food = ({ shop }) => {
   }, [shop]);
 
   const onClickHandler = (id, name, price, img) => {
-    dispatch(actions.add(id, name, price, img));
+    dispatch(actions.addCard(id, name, price, img));
   };
 
   return (

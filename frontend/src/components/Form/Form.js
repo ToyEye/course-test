@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import clientSchema from 'models/clientSchema';
 import {
@@ -19,19 +19,10 @@ const initialValues = {
 };
 
 const Form = () => {
-  const [total, setTotalPrice] = useState([]);
-
   const shopingCard = useSelector(actions.getCard);
 
   const onSubmit = () => {
     formik.resetForm();
-  };
-
-  const sumHandler = sum => {
-    // let summ = shopingCard.reduce((total, sum) => sum + total, 0);
-    let summ = sum + total;
-    setTotalPrice(summ);
-    console.log(summ);
   };
 
   const formik = useFormik({
@@ -105,16 +96,9 @@ const Form = () => {
         <ul>
           {shopingCard &&
             shopingCard.map(({ id, name, price, img }) => (
-              <Card
-                name={name}
-                id={id}
-                price={price}
-                img={img}
-                onSum={sumHandler}
-              />
+              <Card name={name} id={id} price={price} img={img} />
             ))}
         </ul>
-        {/* {total && <p>{total}</p>} */}
       </FormContainerStyled>
     </ShopingCartContainerStyled>
   );

@@ -1,27 +1,23 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { ItemStyled } from './Form.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import actions from 'redux/card/actions';
-// import selector from 'redux/card/selectors';
+import selectors from 'redux/card/selectors';
 
 const Card = ({ id, name, img, price }) => {
-  const [value, setValue] = useState(1);
-  const [cardSum, setCardSum] = useState(0);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    setCardSum(value * Number(price));
-  }, [price, value]);
+  const cards = useSelector(selectors.getCards);
+  const currentCard = cards.find(item => item.id === id);
 
-  const result = useMemo(
-    () => dispatch(actions.sum(Number(price), value)),
-    [dispatch, price, value]
-  );
-  // dispatch(actions.sum(price, value));
+  useEffect(() => {
+    if (currentCard) return;
+    dispatch(actions.add({ id, price, count: 1 }));
+  }, [currentCard, dispatch, id, price]);
 
   const onHandleChange = evt => {
     const { value } = evt.target;
-    setValue(value);
+    dispatch(actions.add({ id, price, count: value }));
   };
 
   return (
@@ -35,10 +31,10 @@ const Card = ({ id, name, img, price }) => {
             type="number"
             inputMode="number"
             min="1"
-            value={value}
+            value={currentCard?.count || 1}
             onChange={onHandleChange}
           />
-          <p>Total: {cardSum}</p>
+          <p>Total: {currentCard ? currentCard.count * price : price}</p>
         </div>
       </div>
     </ItemStyled>

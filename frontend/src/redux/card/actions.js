@@ -1,14 +1,12 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const add = createAction('card/add', (id, name, price, img) => {
-  return { payload: { id, name, price, img } };
-});
+const add = createAction('card/add');
 const remove = createAction('card/remove');
 
-const sum = createAction('card/sum', (price, count) => {
-  return { payload: { price, count } };
+const addCard = createAction('addCard/add', (id, name, price, img) => {
+  return { payload: { id, name, price, img } };
 });
 
-const actions = { remove, add, sum };
+const actions = { remove, add, addCard };
 
 export default actions;

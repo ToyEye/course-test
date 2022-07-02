@@ -1,10 +1,10 @@
-// const { Schema, model } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-// const card = Schema(
-//   { shopCard: { type: String }, totalPrice: { type: Number } },
-//   { versionKey: false, timestamps: true }
-// );
+const order = Schema(
+  { shopCard: { type: String }, totalPrice: { type: Number } },
+  { versionKey: false, timestamps: true }
+);
 
-// const Card = model("card", card);
+const Order = model("order", order);
 
-// module.exports = Card;
+module.exports = Order;
