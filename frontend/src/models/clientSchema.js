@@ -10,7 +10,8 @@ const clientSchema = yup.object().shape({
     .matches(
       /^[a-zA-Z0-9+_.]+[a-zA-Z0-9+_.-]+@[a-zA-Z0-9_.-]+$/,
       'Please enter valid email'
-    ),
+    )
+    .required('Email is required'),
   phone: yup
     .string()
     .matches(phoneRegEx, 'Enter valid number')

@@ -58,6 +58,7 @@ const LabelStyled = styled.label`
 `;
 
 const ItemStyled = styled.li`
+  position: relative;
   margin: 0 auto;
   border: 1px solid ${props => props.theme.colors.mainColor};
   font-weight: ${props => props.theme.fonts.weights.medium};
@@ -76,8 +77,17 @@ const ItemStyled = styled.li`
     border-radius: 10px;
     border: 1px solid #dedede;
     outline: none;
-    padding: 10px;
+    padding: 10px 15px;
     margin-top: 35px;
+
+    :focus::-webkit-textfield-decoration-container {
+      visibility: hidden;
+      pointer-events: none;
+      position: absolute;
+      right: 45%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
   .cartContainer {
     display: flex;
@@ -89,6 +99,12 @@ const ItemStyled = styled.li`
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .deleteButton {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 `;
 

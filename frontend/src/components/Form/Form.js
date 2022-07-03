@@ -7,9 +7,11 @@ import {
   LabelStyled,
   ShopingCartContainerStyled,
 } from './Form.styled';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import actions from 'redux/card/selectors';
 import Card from './Card';
+
+import { addOrder } from 'api/order/order';
 
 const initialValues = {
   name: '',
@@ -21,7 +23,14 @@ const initialValues = {
 const Form = () => {
   const shopingCard = useSelector(actions.getCard);
 
+  const dipatch = useDispatch();
+
+  const addNewOrder = newOrder => {
+    dipatch(addOrder(newOrder));
+  };
+
   const onSubmit = () => {
+    addNewOrder({ data: { info: formik.values, order: [], totalPrice: '' } });
     formik.resetForm();
   };
 

@@ -1,7 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const order = Schema(
-  { shopCard: { type: String }, totalPrice: { type: Number } },
+  {
+    info: { type: Object },
+    order: { type: Array },
+    totalPrice: { type: String },
+  },
   { versionKey: false, timestamps: true }
 );
 
