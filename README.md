@@ -16,3 +16,6 @@ https://bitbucket.org/toyeye/course-test/src/main/
 https://github.com/ToyEye/course-test
 
 https://gitlab.com/ToyEye/course-test
+
+Deploy front:
+https://test-eliftech.netlify.app

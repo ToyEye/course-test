@@ -28,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "serve": "serve -s build",
-    "deploy": "yarn build && yarn serve"
+    "deploy": "netlify deploy -p",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
