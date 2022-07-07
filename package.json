@@ -6,7 +6,7 @@
   "scripts": {
     "installation": "npm i && cd ./backend && npm i && cd ../frontend && npm i",
     "installation:yarn": "yarn && cd ./backend && yarn && cd ../frontend && yarn",
-    "server": "cd ./backend && npm run start:dev",
+    "start": "cd ./backend && npm start",
     "front": "cd ./frontend && npm start",
     "start:dev": "concurrently --kill-others \"npm run server\" \"npm run front\""
   },
