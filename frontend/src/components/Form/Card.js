@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ItemStyled } from './Form.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import actions from 'redux/card/actions';
-import selectors from 'redux/card/selectors';
+
 import { TiDeleteOutline } from 'react-icons/ti';
 
 const Card = ({ id, name, img, price }) => {
+  const [valueInput, setValue] = useState(1);
+  const [total, setTotal] = useState(0);
+
   const dispatch = useDispatch();
 
-  const cards = useSelector(selectors.getCards);
-  const currentCard = cards.find(item => item.id === id);
-
   useEffect(() => {
-    if (currentCard) return;
-    dispatch(actions.add({ id, name, price, count: 1 }));
-  }, [currentCard, dispatch, id, name, price]);
+    setTotal(valueInput * price);
+  }, [price, valueInput]);
 
   const onHandleChange = evt => {
     const { value } = evt.target;
-    dispatch(actions.add({ id, price, name, count: value }));
+    setValue(value);
   };
 
   return (
@@ -32,10 +31,10 @@ const Card = ({ id, name, img, price }) => {
             type="number"
             inputMode="number"
             min="1"
-            value={currentCard?.count || 1}
+            value={valueInput}
             onChange={onHandleChange}
           />
-          <p>Total: {currentCard ? currentCard.count * price : price}</p>
+          <p>Total: {total}</p>
         </div>
         <button
           type="button"
