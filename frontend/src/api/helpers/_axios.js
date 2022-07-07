@@ -1,5 +1,7 @@
 import axios from 'axios';
 
-const _axios = axios.create({ baseURL: 'http://localhost:4000' });
+const _axios = axios.create({
+  baseURL: 'https://korotenko-test-eliftech.herokuapp.com',
+});
 
 export default _axios;
