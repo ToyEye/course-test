@@ -1,7 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
-require("dotenv").config();
+require("dotenv").config({ path: "ENV_FILENAME" });
 
 const burgerRouter = require("./routes/api/burger");
 const chickenRouter = require("./routes/api/wildfowl");
