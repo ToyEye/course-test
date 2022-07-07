@@ -8,7 +8,7 @@ const port = PORT || 5000;
 mongoose
   .connect(DB_HOST)
   .then(() => {
-    app.listen(5000, () => {
+    app.listen(port, () => {
       console.log("Database connection successful");
     });
   })
